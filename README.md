@@ -15,7 +15,7 @@ pip install -r requirements.txt
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from pcgrad import PCGrad
+from hpcgrad import HPCGrad
 
 # wrap your favorite optimizer
 optimizer = HPCGrad(optim.Adam(net.parameters())) 
