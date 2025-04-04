@@ -1,6 +1,7 @@
-# PyTorch-PCGrad
+# HierarchicalPCGrad
 
-This repository provide code of reimplementation for [Gradient Surgery for Multi-Task Learning](https://arxiv.org/pdf/2001.06782.pdf) in PyTorch 1.6.0. 
+This repository provides a reimplementation for [Gradient Surgery for Multi-Task Learning](https://arxiv.org/pdf/2001.06782.pdf) in PyTorch 1.6.0. 
+The method has further been extended to handle hierarchical task projection and combinations of intra- and inter-priority task projections.
 
 ## Setup
 Install the required packages via:
@@ -19,6 +20,7 @@ from pcgrad import PCGrad
 # wrap your favorite optimizer
 optimizer = PCGrad(optim.Adam(net.parameters())) 
 losses = [...] # a list of per-task losses
+priorities = [...] # a list of priorities of tasks, e.g. [1,1,3,2,...]
 assert len(losses) == num_tasks
 optimizer.pc_backward(losses) # calculate the gradient can apply gradient modification
 optimizer.step()  # apply gradient step
