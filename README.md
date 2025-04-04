@@ -18,7 +18,7 @@ import torch.optim as optim
 from pcgrad import PCGrad
 
 # wrap your favorite optimizer
-optimizer = PCGrad(optim.Adam(net.parameters())) 
+optimizer = HPCGrad(optim.Adam(net.parameters())) 
 losses = [...] # a list of per-task losses
 priorities = [...] # a list of priorities of tasks, e.g. [1,1,3,2,...]
 assert len(losses) == num_tasks
